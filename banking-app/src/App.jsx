@@ -28,7 +28,7 @@ function App() {
       <ExpenseContext.Provider value={{ income, expense }}>
         <ExpenseCalculator />
       </ExpenseContext.Provider>
-      <TransactionsContext.Provider value={transactions}>
+      <TransactionsContext.Provider value={{ transactions, setTransactions }}>
         <TransactionList>
           <Transaction />
         </TransactionList>

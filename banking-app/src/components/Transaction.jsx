@@ -1,9 +1,4 @@
-import { useContext } from "react";
-import { TransactionContext } from "../context/TransactionProvider";
-
-function Transaction() {
-  const transaction = useContext(TransactionContext);
-
+function Transaction({ transaction, handleDeleteTransaction, index }) {
   const sign = transaction.amount < 0 ? "-" : "+";
 
   return (
@@ -13,7 +8,12 @@ function Transaction() {
         <span>
           {sign} €{Math.abs(transaction.amount)}
         </span>
-        <button className="delete-btn">✖</button>
+        <button
+          className="delete-btn"
+          onClick={() => handleDeleteTransaction(index)}
+        >
+          ✖
+        </button>
       </li>
     </>
   );

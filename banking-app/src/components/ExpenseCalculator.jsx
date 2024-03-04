@@ -9,8 +9,6 @@ function ExpenseCalculator() {
 
   const isNegative = balance < 0;
 
-  console.log(expense);
-
   function displayBalance() {
     if (isNegative) {
       return `-€${Math.abs(balance)}`;

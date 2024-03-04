@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { TransactionsContext } from "../App";
 
 function AddTransaction({ setTransactions }) {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState("");
-  // const amountAsNumber = Number(amount);
 
   function handleAddTransaction() {
     const newTransaction = { text: text, amount: amount };
@@ -43,9 +41,6 @@ function AddTransaction({ setTransactions }) {
           Add Transaction
         </button>
       </div>
-      {/* <TransactionsContext.Provider value={transactions}>
-        {props.children}
-      </TransactionsContext.Provider> */}
     </>
   );
 }
