@@ -1,9 +1,20 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { TransactionsContext } from "../App";
 import Transaction from "./Transaction";
 
 function TransactionList() {
   const { transactions, setTransactions } = useContext(TransactionsContext);
+
+  useEffect(() => {
+    const storedTransactions = JSON.parse(localStorage.getItem("transactions"));
+    if (storedTransactions) {
+      setTransactions(storedTransactions);
+    }
+  }, [setTransactions]);
+
+  useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  }, [transactions]);
 
   const handleDeleteTransaction = (index) => {
     setTransactions((prevTransactions) =>
